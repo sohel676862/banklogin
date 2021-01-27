@@ -24,10 +24,10 @@ deposit.addEventListener('click', function() {
     document.getElementById('diposit_amont').value = ""
 })
 
-function addspandiposit(id, dipositConvarNumber) {
+function addspandiposit(id, diposit_amontInput) {
     const dipositblance = document.getElementById(id).innerText;
     const dipositblanceConvarNUmber = parseFloat(dipositblance)
-    const totaldiposit = dipositConvarNumber + dipositblanceConvarNUmber
+    const totaldiposit = diposit_amontInput + dipositblanceConvarNUmber
     document.getElementById(id).innerText = totaldiposit;
 }
 ///input valur
@@ -45,6 +45,7 @@ withdrawbtn.addEventListener('click', function() {
     // const withdrawamountConvar = parseFloat(withdrawamount_input)
     const withdrawamountConvar = getinputData('withdrawamount')
     addwithdraw('winthrow', withdrawamountConvar)
+    addwithdraw('currentvalance', -1 * withdrawamountConvar)
 })
 
 function addwithdraw(id, withdrawamountConvar) {
