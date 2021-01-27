@@ -9,44 +9,48 @@ logIn.addEventListener('click', function() {
 
 })
 
-//log in button venent hangler
 
-const diposit_amont = document.getElementById('diposit_amont').value;
+//again practic
+///dipost--- amout
 
-console.log(diposit_amont)
-    ///deposit button
-
-
-
-
+const deposit = document.getElementById('deposit')
 deposit.addEventListener('click', function() {
-    const diposit_amont = document.getElementById('diposit_amont').value;
-    const diposit_numer = parseFloat(diposit_amont)
-    if (diposit_numer != NaN) {
-        upadate("withdawMoney", diposit_numer)
+    // const diposit_amontInput = document.getElementById('diposit_amont').value
+    // const dipositConvarNumber = parseFloat(diposit_amontInput)
+    const diposit_amontInput = getinputData('diposit_amont')
 
-    }
-
-    console.log(diposit_numer)
-    const currentDiposit = document.getElementById('currentDipost').innerText;
-
-
-    const currentDipositNumber = parseFloat(currentDiposit)
-    const totalDeposite = diposit_numer + currentDipositNumber
-    document.getElementById('currentDipost').innerText = totalDeposite;
-    // currentDiposit = totalDeposite;
-
-
-    function upadate(id, diposit_numer) {
-        const withdawMoney = document.getElementById(id).innerText;
-        const withDawMoneynumber = parseFloat(withdawMoney)
-        const totalwithdawmoney = withDawMoneynumber + diposit_numer
-        document.getElementById('withdawMoney').innerText = totalwithdawmoney
-
-    }
-
+    addspandiposit("dipositblance", diposit_amontInput)
+    addspandiposit("currentvalance", diposit_amontInput)
     document.getElementById('diposit_amont').value = ""
-
-
-
 })
+
+function addspandiposit(id, dipositConvarNumber) {
+    const dipositblance = document.getElementById(id).innerText;
+    const dipositblanceConvarNUmber = parseFloat(dipositblance)
+    const totaldiposit = dipositConvarNumber + dipositblanceConvarNUmber
+    document.getElementById(id).innerText = totaldiposit;
+}
+///input valur
+
+function getinputData(id) {
+    const withdrawamount_input = document.getElementById(id).value;
+    const withdrawamountConvar = parseFloat(withdrawamount_input)
+    return withdrawamountConvar;
+}
+
+///withdrow money
+const withdrawbtn = document.getElementById('withdrawbtn')
+withdrawbtn.addEventListener('click', function() {
+    // const withdrawamount_input = document.getElementById('withdrawamount').value;
+    // const withdrawamountConvar = parseFloat(withdrawamount_input)
+    const withdrawamountConvar = getinputData('withdrawamount')
+    addwithdraw('winthrow', withdrawamountConvar)
+})
+
+function addwithdraw(id, withdrawamountConvar) {
+    const dipositblance = document.getElementById(id).innerText;
+    const dipositblanceConvarNUmber = parseFloat(dipositblance)
+    const totaldiposit = withdrawamountConvar + dipositblanceConvarNUmber
+    document.getElementById(id).innerText = totaldiposit;
+    document.getElementById('withdrawamount').value = ""
+}
